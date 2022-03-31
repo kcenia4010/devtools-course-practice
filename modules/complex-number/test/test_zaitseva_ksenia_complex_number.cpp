@@ -23,7 +23,22 @@ TEST(Zaitseva_Ksenia_ComplexNumberTest, Can_Subtract) {
     EXPECT_EQ(im, z.getIm());
 }
 
-TEST(Zaitseva_Ksenia_ComplexNumberTest, Chain_Equality) {
+TEST(Zaitseva_Ksenia_ComplexNumberTest, Equality) {
+    // Arrange
+    ComplexNumber a(1.5, 5.4);
+    ComplexNumber b(9.0, 0.1);
+
+    // Act
+    b = a;
+
+    // Assert
+    EXPECT_EQ(b.getRe(), a.getRe());
+    EXPECT_EQ(b.getIm(), a.getIm());
+    EXPECT_EQ(a.getRe(), 1.5);
+    EXPECT_EQ(a.getIm(), 5.4);
+}
+
+TEST(Zaitseva_Ksenia_ComplexNumberTest, Double_Equality) {
     // Arrange
     ComplexNumber a(1.5, 5.4);
     ComplexNumber b(9.0, 0.1);
@@ -35,11 +50,8 @@ TEST(Zaitseva_Ksenia_ComplexNumberTest, Chain_Equality) {
     // Assert
     EXPECT_EQ(c.getRe(), a.getRe());
     EXPECT_EQ(c.getIm(), a.getIm());
-    EXPECT_EQ(b.getRe(), a.getRe());
-    EXPECT_EQ(b.getIm(), a.getIm());
-    EXPECT_EQ(a.getRe(), 1.5);
-    EXPECT_EQ(a.getIm(), 5.4);
 }
+
 
 TEST(Zaitseva_Ksenia_ComplexNumberTest, Divide_by_zero) {
     // Arrange
