@@ -37,6 +37,15 @@ TEST(Zaitseva_Ksenia_Priority_Queue_Tests,
 }
 
 TEST(Zaitseva_Ksenia_Priority_Queue_Tests,
+    is_not_empty) {
+    PriorityQueue<int> Q;
+
+    Q.push(0);
+
+    ASSERT_FALSE(Q.isEmpty());
+}
+
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests,
     can_not_pop_form_empty_queue) {
     PriorityQueue<int> Q;
 
@@ -83,6 +92,43 @@ TEST(Zaitseva_Ksenia_Priority_Queue_Tests,
     Q2 = Q1;
 
     EXPECT_DOUBLE_EQ(Q1.pop(), Q2.pop());
+}
+
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_push_bigger_number) {
+    PriorityQueue<int> Q;
+
+    Q.push(1);
+    Q.push(9);
+
+    EXPECT_EQ(Q.pop(), 9);
+}
+
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_push_lesser_number) {
+    PriorityQueue<int> Q;
+
+    Q.push(9);
+    Q.push(1);
+
+    EXPECT_EQ(Q.pop(), 9);
+}
+
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_push_equal_number) {
+    PriorityQueue<int> Q;
+
+    Q.push(9);
+    Q.push(9);
+
+    EXPECT_EQ(Q.pop(), 9);
+}
+
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests, pop_equal_number) {
+    PriorityQueue<int> Q;
+
+    Q.push(9);
+    Q.push(9);
+    Q.pop();
+
+    ASSERT_FALSE(Q.isEmpty());
 }
 
 TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_pop_in_right_order) {
