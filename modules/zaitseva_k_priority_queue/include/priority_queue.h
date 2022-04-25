@@ -22,8 +22,8 @@ class PriorityQueue {
 
 template<typename T>
 void PriorityQueue<T>::heapify(int i) {
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
+    std::size_t left = 2 * i + 1;
+    std::size_t right = 2 * i + 2;
     if (left < data.size()) {
         if (data[i] < data[left]) {
             std::swap(data[i], data[left]);
@@ -40,7 +40,7 @@ void PriorityQueue<T>::heapify(int i) {
 
 template<typename T>
 void PriorityQueue<T>::push(T new_elem) {
-    int i = data.size();
+    int i = static_cast<int>(data.size());
     data.push_back(new_elem);
     int parent = (i - 1) / 2;
     while (parent >= 0 && i > 0) {
