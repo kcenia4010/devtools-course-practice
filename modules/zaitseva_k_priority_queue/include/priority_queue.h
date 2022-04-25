@@ -60,8 +60,7 @@ T PriorityQueue<T>::pop() {
         data = std::vector<T>(data.begin(), data.end() - 1);
         heapify(0);
         return res;
-    }
-    else {
+    } else {
         throw std::out_of_range("priority queue is empty");
     }
 }

@@ -101,3 +101,21 @@ TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_pop_in_right_order) {
 
     EXPECT_EQ(res, expected_res);
 }
+
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_pop_in_right_order_with_equal_numbers) {
+    PriorityQueue<int> Q;
+    std::vector<int> res;
+    std::vector<int> expected_res{ 10, 7, 3, 1, 0, 0 };
+
+    Q.push(1);
+    Q.push(3);
+    Q.push(0);
+    Q.push(7);
+    Q.push(0);
+    Q.push(10);
+    while (!Q.isEmpty()) {
+        res.push_back(Q.pop());
+    }
+
+    EXPECT_EQ(res, expected_res);
+}
