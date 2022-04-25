@@ -1,6 +1,4 @@
 // Copyright 2022 Zaitseva Ksenia
-#include "include/priority_queue.h"
-
 #include <gtest/gtest.h>
 
 int main(int argc, char **argv) {

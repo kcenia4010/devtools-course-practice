@@ -73,7 +73,8 @@ TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_assign_queue_to_itself) {
     ASSERT_NO_THROW(Q = Q);
 }
 
-TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_assign_queue_of_different_size_correctly) {
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests, 
+    can_assign_queue_of_different_size_correctly) {
     PriorityQueue<double> Q1;
     PriorityQueue<double> Q2;
 
@@ -102,7 +103,8 @@ TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_pop_in_right_order) {
     EXPECT_EQ(res, expected_res);
 }
 
-TEST(Zaitseva_Ksenia_Priority_Queue_Tests, can_pop_in_right_order_with_equal_numbers) {
+TEST(Zaitseva_Ksenia_Priority_Queue_Tests, 
+    can_pop_in_right_order_with_equal_numbers) {
     PriorityQueue<int> Q;
     std::vector<int> res;
     std::vector<int> expected_res{ 10, 7, 3, 1, 0, 0 };
