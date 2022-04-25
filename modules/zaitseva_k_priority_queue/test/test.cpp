@@ -1,6 +1,7 @@
 // Copyright 2022 Zaitseva Ksenia
 
 #include <gtest/gtest.h>
+#include <vector>
 
 #include "include/priority_queue.h"
 

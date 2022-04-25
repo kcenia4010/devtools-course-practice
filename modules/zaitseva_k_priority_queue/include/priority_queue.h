@@ -1,25 +1,23 @@
 // Copyright 2022 Zaitseva Ksenia
 
-#ifndef MODULES_ZAITSEVA_KSENIA_PRIORITY_QUEUE_H_
-#define MODULES_ZAITSEVA_KSENIA_PRIORITY_QUEUE_H_
+#ifndef MODULES_ZAITSEVA_K_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_H_
+#define MODULES_ZAITSEVA_K_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_H_
 
 #include <vector>
-#include <iostream>
 #include <stdexcept>
 #include <algorithm>
 
 template <typename T>
 class PriorityQueue {
-private:
+ private:
     std::vector<T> data;
     void heapify(int i);
-
-public:
-    PriorityQueue() {};
+ public:
+    PriorityQueue() {}
     void push(T new_elem);
     T pop();
     int size() { return data.size(); }
-    bool isEmpty() { return !data.size(); };
+    bool isEmpty() { return !data.size(); }
 };
 
 template<typename T>
@@ -63,7 +61,9 @@ T PriorityQueue<T>::pop() {
         heapify(0);
         return res;
     }
-    else throw std::out_of_range("priority queue is empty");
+    else {
+        throw std::out_of_range("priority queue is empty");
+    }
 }
 
-#endif  // MODULES_ZAITSEVA_KSENIA_PRIORITY_QUEUE_H_
+#endif  // MODULES_ZAITSEVA_K_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_H_
