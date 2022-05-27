@@ -81,10 +81,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Run_3x3_Matrix PROPERTIES
-    PASS_REGULAR_EXPRESSION "Distance between vertices 0 and
-        0 is 0
-        1 is 2
-        2 is 1"
+    PASS_REGULAR_EXPRESSION "Distance between vertices 0 and 0 is 0, 0 and 1 is 2, 0 and 2 is 1"
     LABELS "${MODULE}")
 	
 add_test(
@@ -93,11 +90,5 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Run_5x5_Matrix PROPERTIES
-    PASS_REGULAR_EXPRESSION "Distance between vertices 3 and
-        0 is 20
-        1 is 15
-        2 is 11
-        3 is 0
-        4 is 6
-        5 is 13"
+    PASS_REGULAR_EXPRESSION "Distance between vertices 3 and 0 is 20, 3 and 1 is 15, 3 and 2 is 11, 3 and 3 is 0, 3 and 4 is 6, 3 and 5 is 13"
     LABELS "${MODULE}")

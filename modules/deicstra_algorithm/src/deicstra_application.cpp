@@ -2,6 +2,7 @@
 
 #include "include/deicstra_application.h"
 
+#include <cmath>
 #include <string>
 #include <vector>
 
@@ -23,13 +24,13 @@ bool DeicstraApplication::help(int argc, const char* argv[], std::size_t* top,
       vector.push_back(atoi(argv[i]));
     }
   }
-  if (std::sqrt(vector.size()) != static_cast<int>(std::sqrt(vector.size()))) {
+  if (sqrt(vector.size()) != static_cast<int>(sqrt(vector.size()))) {
     return false;
   }
 
   graf->resize(static_cast<int>(sqrt(vector.size())));
-  for (int i = 0; i < graf->size(); i++) {
-    for (int j = 0; j < graf->size(); j++) {
+  for (std::size_t i = 0; i < graf->size(); i++) {
+    for (std::size_t j = 0; j < graf->size(); j++) {
       (*graf)[i].push_back(vector[i * graf->size() + j]);
     }
   }
@@ -41,11 +42,11 @@ bool DeicstraApplication::help(int argc, const char* argv[], std::size_t* top,
 
 bool DeicstraApplication::checkGraf(
     const std::vector<std::vector<std::size_t>>& graf) {
-  for (int i = 0; i < graf.size(); i++) {
+  for (std::size_t i = 0; i < graf.size(); i++) {
     if (graf[i][i] != 0) {
       return false;
     }
-    for (int j = 0; j < graf.size(); j++) {
+    for (std::size_t j = 0; j < graf.size(); j++) {
       if (graf[i][j] != graf[j][i]) {
         return false;
       }
@@ -68,10 +69,13 @@ std::string DeicstraApplication::operator()(int argc, const char* argv[]) {
   }
   Algorithm Deicstra;
   std::vector<std::size_t> res = Deicstra.getDeicstra(graf, top);
-  std::string print_result =
-      "Distance between vertices " + toString(top) + " and\n\t";
+  std::string print_result = "Distance between vertices ";
   for (std::size_t i = 0; i < res.size(); i++) {
-    print_result += toString(i) + " is " + toString(res[i]) + "\n\t";
+    print_result +=
+        toString(top) + " and " + toString(i) + " is " + toString(res[i]);
+    if (i != res.size() - 1) {
+      print_result += ", ";
+    }
   }
   return print_result;
 }
