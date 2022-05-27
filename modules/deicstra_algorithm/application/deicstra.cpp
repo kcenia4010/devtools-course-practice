@@ -1,5 +1,7 @@
 // Copyright 2022 Zaitseva Ksenia
 
+#define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING 1
+
 #include <iostream>
 #include <string>
 

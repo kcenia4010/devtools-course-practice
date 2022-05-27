@@ -1,7 +1,7 @@
 // Copyright 2022 Zaitseva Ksenia
 
-#ifndef MODULES_DEICSTRA_ALGORITHM_INCLUDE_ERSHOV_ALEXEY_DEICSTRA_ALGORITHM_APPLICATION_H_
-#define MODULES_DEICSTRA_ALGORITHM_INCLUDE_ERSHOV_ALEXEY_DEICSTRA_ALGORITHM_APPLICATION_H_
+#ifndef MODULES_DEICSTRA_ALGORITHM_INCLUDE_DEICSTRA_APPLICATION_H_
+#define MODULES_DEICSTRA_ALGORITHM_INCLUDE_DEICSTRA_APPLICATION_H_
 
 #include <iostream>
 #include <sstream>
@@ -17,8 +17,8 @@ class DeicstraApplication {
  private:
   template <typename T>
   std::string toString(T val);
-  bool help(int argc, const char* argv[], std::size_t& top,
-            std::vector<std::vector<std::size_t>>& graf);
+  bool help(int argc, const char* argv[], std::size_t* top,
+            std::vector<std::vector<std::size_t>>* graf);
   bool checkGraf(const std::vector<std::vector<std::size_t>>& graf);
 };
 
@@ -29,5 +29,4 @@ inline std::string DeicstraApplication::toString(T val) {
   return oss.str();
 }
 
-#endif  //  MODULES_DEICSTRA_ALGORITHM_INCLUDE_E
-        //  RSHOV_ALEXEY_DEICSTRA_ALGORITHM_APPLICATION_H_
+#endif  // MODULES_DEICSTRA_ALGORITHM_INCLUDE_DEICSTRA_APPLICATION_H_

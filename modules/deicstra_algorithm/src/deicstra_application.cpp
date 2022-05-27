@@ -2,8 +2,8 @@
 
 #include "include/deicstra_application.h"
 
-bool DeicstraApplication::help(int argc, const char* argv[], std::size_t& top,
-                               std::vector<std::vector<std::size_t>>& graf) {
+bool DeicstraApplication::help(int argc, const char* argv[], std::size_t* top,
+                               std::vector<std::vector<std::size_t>>* graf) {
   if (argc <= 3) {
     return false;
   }
@@ -15,7 +15,7 @@ bool DeicstraApplication::help(int argc, const char* argv[], std::size_t& top,
     if (argv[i][0] == '|')
       continue;
     else if (argv[i][1] == ')') {
-      top = atoi(argv[i + 1]);
+      *top = atoi(argv[i + 1]);
       vector.push_back(0);
       break;
     } else {
@@ -26,14 +26,14 @@ bool DeicstraApplication::help(int argc, const char* argv[], std::size_t& top,
     return false;
   }
 
-  graf.resize(sqrt(vector.size()));
-  for (int i = 0; i < graf.size(); i++) {
-    for (int j = 0; j < graf.size(); j++) {
-      graf[i].push_back(vector[i * graf.size() + j]);
+  graf->resize(static_cast<int>(sqrt(vector.size())));
+  for (int i = 0; i < graf->size(); i++) {
+    for (int j = 0; j < graf->size(); j++) {
+      (*graf)[i].push_back(vector[i * graf->size() + j]);
     }
   }
-  if (top >= 0 && top < graf.size())
-    return checkGraf(graf);
+  if (*top >= 0 && *top < graf->size())
+    return checkGraf(*graf);
   else
     return false;
 }
@@ -61,7 +61,7 @@ std::string DeicstraApplication::operator()(int argc, const char* argv[]) {
             << "Example: " << argv[0] << " (0 2 1 | 2 0 3 | 1 3 0) 0 \n\n";
   std::size_t top;
   std::vector<std::vector<std::size_t>> graf;
-  if (!help(argc, argv, top, graf)) {
+  if (!help(argc, argv, &top, &graf)) {
     std::cout << "Incorrect parametrs.\n";
     return std::string();
   }
