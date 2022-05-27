@@ -2,6 +2,9 @@
 
 #include "include/deicstra_application.h"
 
+#include <string>
+#include <vector>
+
 bool DeicstraApplication::help(int argc, const char* argv[], std::size_t* top,
                                std::vector<std::vector<std::size_t>>* graf) {
   if (argc <= 3) {
@@ -9,14 +12,12 @@ bool DeicstraApplication::help(int argc, const char* argv[], std::size_t* top,
   }
 
   std::vector<std::size_t> vector;
-  vector.push_back(0);
 
   for (int i = 2; i < argc; ++i) {
-    if (argv[i][0] == '|')
+    if (argv[i][0] == '|') {
       continue;
-    else if (argv[i][1] == ')') {
+    } else if (argv[i][0] == ')') {
       *top = atoi(argv[i + 1]);
-      vector.push_back(0);
       break;
     } else {
       vector.push_back(atoi(argv[i]));
